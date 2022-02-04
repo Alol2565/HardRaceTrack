@@ -25,7 +25,7 @@ obs = env.reset()
 save_dir = Path('results') / datetime.datetime.now().strftime('%Y-%m-%dT%H-%M-%S')
 save_dir.mkdir(parents=True)
 
-action_resolution = 0.1
+action_resolution = 0.05
 agent = DeepCar(state_dim=(4, 128, 128), action_dim=int((2 / action_resolution)**2))
 print('Action Size (Discrete):\t',int((2 / action_resolution)**2))
 

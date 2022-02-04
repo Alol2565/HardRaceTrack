@@ -10,17 +10,17 @@ class DeepCar:
     def __init__(self, state_dim, action_dim):
         self.state_dim = state_dim
         self.action_dim = action_dim
-        self.memory = deque(maxlen=int(1.2e4))
+        self.memory = deque(maxlen=int(1e4))
         self.batch_size = 32
 
         self.exploration_rate = 1
-        self.exploration_rate_decay = 0.9999975
+        self.exploration_rate_decay = 0.9999975 
         self.exploration_rate_min = 0.1
         self.gamma = 0.9
 
         self.curr_step = 0
         self.burnin = 1e3  # min. experiences before training
-        self.learn_every = 8  # no. of experiences between updates to Q_online
+        self.learn_every = 5  # no. of experiences between updates to Q_online
         self.sync_every = 1e3   # no. of experiences between Q_target & Q_online sync
 
         self.use_cuda = torch.cuda.is_available()
